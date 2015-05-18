@@ -1,0 +1,3 @@
+#!/bin/sh
+address=`networksetup -getmacaddress Wi-Fi | awk '{print $3}'`
+echo "<result>$address</result>"
