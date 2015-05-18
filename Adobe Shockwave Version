@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -s /Library/Internet\ Plug-Ins/DirectorShockwave.plugin ]
+then
+    version=$(defaults read /Library/Internet\ Plug-Ins/DirectorShockwave.plugin/Contents/Info.plist  CFBundleShortVersionString)
+	echo "<result>$version</result>"
+else
+	echo "<result>Not Installed</result>"
+fi
