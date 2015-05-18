@@ -1,0 +1,6 @@
+#!/bin/sh
+
+dnsServer=$(scutil --dns | grep nameserver\[[0-9]*\])
+echo "<result>$dnsServer</result>"
+
+exit 0
