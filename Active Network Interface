@@ -1,0 +1,12 @@
+#!/bin/sh
+OS=`/usr/bin/sw_vers -productVersion | /usr/bin/colrm 5`
+if [[ "$OS" &lt; "10.5" ]]; then
+if [ -f /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Support/networksetup ];then		
+	echo "&lt;result&gt;`/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Support/networksetup -listnetworkserviceorder 2>&amp;1 | grep $(/usr/sbin/netstat -rn 2>&amp;1 | /usr/bin/grep -m 1 'default' | /usr/bin/awk '{ print $6 }') | sed -e "s/.*Port: //g" -e "s/,.*//g"`&lt;/result&gt;"
+else
+	echo "&lt;result&gt;The networksetup binary is not present on this machine.&lt;/result&gt;"
+fi
+else
+echo "&lt;result&gt;`/usr/sbin/networksetup -listnetworkserviceorder 2>&amp;1 | grep $(/usr/sbin/netstat -rn 2>&amp;1 | /usr/bin/grep -m 1 'default' | /usr/bin/awk '{ print $6 }') | sed -e "s/.*Port: //g" -e "s/,.*//g"`&lt;/result&gt;"
+fi
+
