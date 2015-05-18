@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -s /Applications/FocusWriter.app ]
+then
+    version=`defaults read /Applications/FocusWriter.app/Contents/Info.plist  CFBundleShortVersionString`
+	echo "<result>$version</result>"
+else
+	echo "<result>Not Installed</result>"
+fi
