@@ -1,0 +1,4 @@
+#!/bin/sh
+
+UNC=`dsconfigad -show | grep "Use Windows UNC path for home"| awk '{print $8}'`
+echo "<result>$UNC</result>"
