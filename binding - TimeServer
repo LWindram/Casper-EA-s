@@ -1,0 +1,6 @@
+#!/bin/sh
+
+timeServer=`systemsetup -getnetworktimeserver | awk '{ print $4 }'`
+echo "<result>$timeServer</result>"
+
+exit 0
