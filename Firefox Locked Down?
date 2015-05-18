@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ ! -f /Applications/Firefox.app/Contents/Resources/defaults/pref/autoconfig.js ]
+then
+	echo "<result>No</result>"
+else
+	echo "<result>Yes</result>"
+fi
