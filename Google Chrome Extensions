@@ -1,0 +1,20 @@
+
+#!/bin/bash
+
+loggedInUser=$( ls -l /dev/console | awk '{print $3}' )
+
+JSONS=$( find "/Users/${loggedInUser}/Library/Application Support/Google/Chrome/Default/Extensions" -maxdepth 6 -wholename "*/en*messages.json" )
+# echo $JSONS
+while read JSON; do
+        extNAME=$( awk '/.Name of the extension./{print}' RS="\}" FS='"' "$JSON" | grep "message" | awk '{$1=""}sub(FS,"")' | tr -d '"' )
+        appNAME=$( awk '/.appName./{print}' RS="\}" FS='"' "$JSON" | grep "message" | awk '{$1=""}sub(FS,"")' | tr -d '"' )
+        if [[ ! -z "$extNAME" ]]; then
+                EXTS+=( "${extNAME}\n" )
+        fi
+        if [[ ! -z "$appNAME" ]]; then
+                EXTS+=( "${appNAME}\n" )
+        fi
+done <<< "$JSONS"
+
+uniq=($(printf "%s\n" "${EXTS[@]}" | sort -u)) 
+echo "<result>${uniq[@]}</result>"
