@@ -1,0 +1,6 @@
+#!/bin/sh
+
+mobileAccount=$(dsconfigad -show | grep "Create mobile account at login"| awk '{print $7}')
+echo "<result>$mobileAccount</result>"
+
+exit 0
