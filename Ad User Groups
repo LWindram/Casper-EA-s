@@ -1,0 +1,9 @@
+#!/bin/sh
+
+currUser=$( /usr/bin/who | /usr/bin/awk '/console/{ print $1 }' )
+
+Groups=$( dscl /Active\ Directory/GRCS/All\ Domains read /Users/$currUser dsAttrTypeNative:memberOf | awk -F"OU" '{ print $1 }' | sed -e 's/CN=//g;s/,$//g;1d' )
+
+echo "<result>$Groups</result>"
+
+exit 0
