@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -s /Applications/Keynote.app ]
+then
+    version=$(defaults read /Applications/Keynote.app/Contents/Info.plist  CFBundleShortVersionString)
+	echo "<result>$version</result>"
+else
+	echo "<result>Not Installed</result>"
+fi
