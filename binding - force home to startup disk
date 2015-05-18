@@ -1,0 +1,6 @@
+#!/bin/sh
+
+adHome=$(dsconfigad -show | grep "Force home to startup disk" | awk '{ print $7 }')
+echo "<result> $adHome </result>"
+
+exit 0
