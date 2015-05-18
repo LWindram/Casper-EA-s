@@ -1,0 +1,4 @@
+#!/bin/sh
+
+adAdmin=$(dsconfigad -show | grep "Allowed admin groups" | awk '{ print $5, $6 }')
+echo "<result> $adAdmin </result>"
