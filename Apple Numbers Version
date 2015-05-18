@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -s /Applications/Numbers.app ]
+then
+    version=$(defaults read /Applications/Numbers.app/Contents/Info.plist  CFBundleShortVersionString)
+	echo "<result>$version</result>"
+else
+	echo "<result>Not Installed</result>"
+fi
