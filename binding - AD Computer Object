@@ -1,0 +1,4 @@
+#!/bin/sh
+
+adname=$(dsconfigad -show | grep "Computer Account" | awk '{ print $4 }')
+echo "<result> $adname </result>"
