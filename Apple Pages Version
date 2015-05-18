@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -s /Applications/Pages.app ]
+then
+    version=$(defaults read /Applications/Pages.app/Contents/Info.plist  CFBundleShortVersionString)
+	echo "<result>$version</result>"
+else
+	echo "<result>Not Installed</result>"
+fi
