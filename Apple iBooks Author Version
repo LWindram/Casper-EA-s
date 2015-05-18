@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -s /Applications/iBooks\ Author.app ]
+then
+    version=`defaults read /Applications/iBooks\ Author.app/Contents/Info.plist  CFBundleShortVersionString`
+	echo "<result>$version</result>"
+else
+	echo "<result>Not Installed</result>"
+fi
