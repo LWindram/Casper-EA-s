@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ ! -f /Library/Printers/PPDs/Contents/Resources/RICOH\ imagio\ MP\ 6002.gz ]
+then
+	echo "<result>Not Installed</result>"
+else
+	echo "<result>Installed</result>"
+fi
