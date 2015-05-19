@@ -1,0 +1,31 @@
+#!/bin/bash
+
+then=$(sysctl kern.boottime | awk '{print $5}' | sed "s/,//")
+now=$(date +%s)
+diff=$(($now-$then))
+
+days=$(($diff/86400));
+diff=$(($diff-($days*86400)))
+hours=$(($diff/3600))
+diff=$(($diff-($hours*3600)))
+minutes=$(($diff/60))
+
+format(){
+	if [ $1 == 1 ]; then
+        result="${1%"${var##*[![:space:]]}"}"
+        echo "$result" ' ' $2
+    else
+        result="${1%"${var##*[![:space:]]}"}"
+        echo "$result" ' ' $2's'
+	fi
+}
+
+if [ $days = 0 ]; then
+    output="<result>`format $hours "hour"` `format $minutes "minute"`</result>"
+    echo $output
+else
+    output="<result>`format $days "day"` `format $hours "hour"` `format $minutes "minute"`</result>"
+echo $output
+fi
+
+exit 0
