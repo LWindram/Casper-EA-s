@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -s /private/var/mounter.sh ]; then
+    version=$(grep Version /private/var/mounter.sh | awk '{print $3}')
+	echo "<result>$version</result>"
+else
+	echo "<result>Not Installed</result>"
+fi
+
+exit 0
