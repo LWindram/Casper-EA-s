@@ -1,0 +1,19 @@
+#!/bin/sh
+# https://github.com/LWindram/Casper-EA-s/FMMStatus
+#
+
+if [ -e /Library/Preferences/com.apple.FindMyMac.plist ];then
+    FMM=$(defaults read /Library/Preferences/com.apple.FindMyMac.plist FMMEnabled)
+else
+    FMM=9
+fi
+
+if [ $FMM = 1 ]; then
+    echo "<result>Enabled</result>"
+elif [ $FMM = 9 ]; then
+	echo "<result>plist Missing</result>"
+else
+	echo "<result>Disabled</result>"
+fi
+
+exit 0
