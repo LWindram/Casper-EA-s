@@ -1,9 +1,0 @@
-#!/bin/sh
-
-if [ -s /Applications/mountDrives.app ]
-then
-    version=`defaults read /Applications/mountDrives.app/Contents/Info.plist  CFBundleShortVersionString`
-	echo "<result>$version</result>"
-else
-	echo "<result>Not Installed</result>"
-fi
