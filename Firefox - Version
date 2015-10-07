@@ -1,0 +1,10 @@
+#!/bin/sh
+# sourced from unknown
+
+if [ -s /Applications/Firefox.app ]
+then
+    version=$(defaults read /Applications/Firefox.app/Contents/Info.plist  CFBundleShortVersionString)
+	echo "<result>$version</result>"
+else
+	echo "<result>Not Installed</result>"
+fi
