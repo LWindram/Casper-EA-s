@@ -1,8 +1,8 @@
 #!/bin/sh
 # 
+# https://github.com/LWindram/Casper-EA-s/Generic Script Version
 #
-#
-#  Script must contain a line formatted as below:
+#  Target script must contain a line formatted as below:
 #  Version: X.x
 #
 
