@@ -1,4 +1,6 @@
 #!/bin/sh
+# I believe this is sourced from https://github.com/rtrouton
+
 if [ -s /Library/Internet\ Plug-Ins/Flash\ Player.plugin ]
 then
     version=$(defaults read /Library/Internet\ Plug-Ins/Flash\ Player.plugin/Contents/Info.plist  CFBundleShortVersionString)
