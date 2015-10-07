@@ -1,0 +1,19 @@
+#!/bin/sh
+# 
+#
+#
+#  Script must contain a line formatted as below:
+#  Version: X.x
+#
+
+#  provide the appropriate script location:
+LOCN="pathToScript"
+
+if [ -s $LOCN ]; then
+    version=$(grep Version $LOCN | awk '{print $3}')
+	echo "<result>$version</result>"
+else
+	echo "<result>Not Installed</result>"
+fi
+
+exit 0
