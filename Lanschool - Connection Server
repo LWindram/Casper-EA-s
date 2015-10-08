@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -e /Library/Preferences/com.lanschool.student.settings.plist ]
+then
+    SERVER=$(defaults read /Library/Preferences/com.lanschool.student.settings.plist ClassroomServerAddress)
+    echo "<result>$SERVER</result>"
+else
+	echo "<result>Not Installed</result>"
+fi
+
+exit
