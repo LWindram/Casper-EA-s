@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -e /Library/Preferences/com.lanschool.student.settings.plist ]; then
+    SCHANNEL=$(defaults read /Library/Preferences/com.lanschool.student.settings.plist Channel)
+    echo "<result>"Student Channel: $SCHANNEL"</result>"
+elif [ -e /Library/Preferences/com.lanschool.teacher.plist ]; then
+    TCHANNEL=$(defaults read /Library/Preferences/com.lanschool.teacher.plist Channel)
+    echo "<result>"Student Channel: $TCHANNEL"</result>"
+else
+	echo "<result>Not Installed</result>"
+fi
+
+exit
